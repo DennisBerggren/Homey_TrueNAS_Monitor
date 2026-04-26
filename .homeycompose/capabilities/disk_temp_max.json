@@ -1,0 +1,12 @@
+{
+  "type": "number",
+  "title": { "en": "Disk Temperature (Max)" },
+  "units": "°C",
+  "decimals": 0,
+  "min": 0,
+  "max": 100,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "/drivers/truenas_device/assets/harddisk.svg"
+}

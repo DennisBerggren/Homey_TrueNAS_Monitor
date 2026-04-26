@@ -1,0 +1,11 @@
+{
+  "type": "number",
+  "title": { "en": "Pool Free Space" },
+  "units": "TiB",
+  "decimals": 2,
+  "min": 0,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "/drivers/truenas_device/assets/storage.svg"
+}

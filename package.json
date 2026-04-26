@@ -1,0 +1,11 @@
+{
+  "name": "com.truenas.monitor",
+  "version": "0.1.0",
+  "description": "TrueNAS Monitor for Homey",
+  "main": "app.js",
+  "scripts": {
+    "start": "homey app run"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

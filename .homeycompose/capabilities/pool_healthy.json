@@ -1,0 +1,13 @@
+{
+  "type": "boolean",
+  "title": { "en": "Pool Healthy" },
+  "titleTrue": { "en": "Healthy" },
+  "titleFalse": { "en": "Unhealthy" },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "insights": true,
+  "insightsTitleTrue": { "en": "Pool became healthy" },
+  "insightsTitleFalse": { "en": "Pool became unhealthy" },
+  "icon": "/drivers/truenas_device/assets/pool.svg"
+}

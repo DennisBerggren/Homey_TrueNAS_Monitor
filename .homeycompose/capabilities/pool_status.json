@@ -1,0 +1,17 @@
+{
+  "type": "enum",
+  "title": { "en": "Pool Status" },
+  "values": [
+    { "id": "ONLINE",   "title": { "en": "Online" } },
+    { "id": "DEGRADED", "title": { "en": "Degraded" } },
+    { "id": "FAULTED",  "title": { "en": "Faulted" } },
+    { "id": "OFFLINE",  "title": { "en": "Offline" } },
+    { "id": "REMOVED",  "title": { "en": "Removed" } },
+    { "id": "UNAVAIL",  "title": { "en": "Unavailable" } },
+    { "id": "UNKNOWN",  "title": { "en": "Unknown" } }
+  ],
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "/drivers/truenas_device/assets/pool.svg"
+}

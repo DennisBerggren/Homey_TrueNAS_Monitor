@@ -1,0 +1,245 @@
+{
+  "id": "com.truenas.monitor",
+  "version": "0.1.0",
+  "compatibility": ">=12.0.0",
+  "sdk": 3,
+  "name": {
+    "en": "TrueNAS Monitor"
+  },
+  "description": {
+    "en": "Monitor your TrueNAS system from Homey"
+  },
+  "category": [
+    "tools"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Dennis Berggren"
+  },
+  "main": "app.js",
+  "flow": {
+    "triggers": [
+      {
+        "id": "pool_status_changed",
+        "title": {
+          "en": "Pool status changed"
+        },
+        "hint": {
+          "en": "Triggers when the TrueNAS pool status changes, e.g. from Online to Degraded."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=truenas_device"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "status",
+            "type": "string",
+            "title": {
+              "en": "Status"
+            },
+            "example": "DEGRADED"
+          }
+        ]
+      },
+      {
+        "id": "truenas_offline",
+        "title": {
+          "en": "TrueNAS went offline"
+        },
+        "hint": {
+          "en": "Triggers when Homey can no longer reach the TrueNAS system."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=truenas_device"
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "id": "truenas_device",
+      "name": {
+        "en": "TrueNAS System"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "pool_healthy",
+        "pool_status",
+        "pool_used_percentage",
+        "pool_free_tb",
+        "disk_temp_max",
+        "measure_temperature"
+      ],
+      "capabilitiesOptions": {
+        "measure_temperature": {
+          "title": {
+            "en": "Disk Temp (Max)"
+          }
+        }
+      },
+      "images": {
+        "small": "/drivers/truenas_device/assets/images/small.png",
+        "large": "/drivers/truenas_device/assets/images/large.png",
+        "xlarge": "/drivers/truenas_device/assets/images/xlarge.png"
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "pair": [
+        {
+          "id": "connect",
+          "navigation": {
+            "next": "list_devices"
+          }
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "disk_temp_max": {
+      "type": "number",
+      "title": {
+        "en": "Disk Temperature (Max)"
+      },
+      "units": "°C",
+      "decimals": 0,
+      "min": 0,
+      "max": 100,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/drivers/truenas_device/assets/harddisk.svg"
+    },
+    "pool_free_tb": {
+      "type": "number",
+      "title": {
+        "en": "Pool Free Space"
+      },
+      "units": "TiB",
+      "decimals": 2,
+      "min": 0,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/drivers/truenas_device/assets/storage.svg"
+    },
+    "pool_healthy": {
+      "type": "boolean",
+      "title": {
+        "en": "Pool Healthy"
+      },
+      "titleTrue": {
+        "en": "Healthy"
+      },
+      "titleFalse": {
+        "en": "Unhealthy"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "Pool became healthy"
+      },
+      "insightsTitleFalse": {
+        "en": "Pool became unhealthy"
+      },
+      "icon": "/drivers/truenas_device/assets/pool.svg"
+    },
+    "pool_status": {
+      "type": "enum",
+      "title": {
+        "en": "Pool Status"
+      },
+      "values": [
+        {
+          "id": "ONLINE",
+          "title": {
+            "en": "Online"
+          }
+        },
+        {
+          "id": "DEGRADED",
+          "title": {
+            "en": "Degraded"
+          }
+        },
+        {
+          "id": "FAULTED",
+          "title": {
+            "en": "Faulted"
+          }
+        },
+        {
+          "id": "OFFLINE",
+          "title": {
+            "en": "Offline"
+          }
+        },
+        {
+          "id": "REMOVED",
+          "title": {
+            "en": "Removed"
+          }
+        },
+        {
+          "id": "UNAVAIL",
+          "title": {
+            "en": "Unavailable"
+          }
+        },
+        {
+          "id": "UNKNOWN",
+          "title": {
+            "en": "Unknown"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/drivers/truenas_device/assets/pool.svg"
+    },
+    "pool_used_percentage": {
+      "type": "number",
+      "title": {
+        "en": "Pool Used"
+      },
+      "units": "%",
+      "decimals": 1,
+      "min": 0,
+      "max": 100,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/drivers/truenas_device/assets/percentage.svg"
+    }
+  }
+}

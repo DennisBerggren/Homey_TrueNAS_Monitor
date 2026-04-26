@@ -1,0 +1,17 @@
+{
+  "device": {
+    "unavailable": "Cannot reach TrueNAS"
+  },
+  "pair": {
+    "login_credentials": {
+      "username": {
+        "label": "Host (IP or hostname)",
+        "placeholder": "192.168.1.100"
+      },
+      "password": {
+        "label": "API Key",
+        "placeholder": "Paste your TrueNAS API key here"
+      }
+    }
+  }
+}

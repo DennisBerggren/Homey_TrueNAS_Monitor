@@ -1,0 +1,24 @@
+{
+  "id": "pool_status_changed",
+  "title": {
+    "en": "Pool status changed"
+  },
+  "hint": {
+    "en": "Triggers when the TrueNAS pool status changes, e.g. from Online to Degraded."
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=truenas_device"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "status",
+      "type": "string",
+      "title": { "en": "Status" },
+      "example": "DEGRADED"
+    }
+  ]
+}

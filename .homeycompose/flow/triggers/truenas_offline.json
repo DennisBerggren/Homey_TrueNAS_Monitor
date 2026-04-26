@@ -1,0 +1,16 @@
+{
+  "id": "truenas_offline",
+  "title": {
+    "en": "TrueNAS went offline"
+  },
+  "hint": {
+    "en": "Triggers when Homey can no longer reach the TrueNAS system."
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=truenas_device"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "truenas_device",
+  "name": {
+    "en": "TrueNAS System"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "pool_healthy",
+    "pool_status",
+    "pool_used_percentage",
+    "pool_free_tb",
+    "disk_temp_max",
+    "measure_temperature"
+  ],
+  "capabilitiesOptions": {
+    "measure_temperature": {
+      "title": {
+        "en": "Disk Temp (Max)"
+      }
+    }
+  },
+  "images": {
+    "small": "/drivers/truenas_device/assets/images/small.png",
+    "large": "/drivers/truenas_device/assets/images/large.png",
+    "xlarge": "/drivers/truenas_device/assets/images/xlarge.png"
+  },
+  "platforms": ["local"],
+  "connectivity": ["lan"],
+  "pair": [
+    {
+      "id": "connect",
+      "navigation": {
+        "next": "list_devices"
+      }
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ]
+}
