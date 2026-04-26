@@ -22,6 +22,7 @@
     "name": "Dennis Berggren"
   },
   "main": "app.js",
+  "platforms": ["local"],
   "brandColor": "#0095D5",
   "flow": {
     "triggers": [
