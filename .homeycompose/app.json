@@ -1,6 +1,6 @@
 {
   "id": "com.truenas.monitor",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "compatibility": ">=12.0.0",
   "sdk": 3,
   "name": {
@@ -22,7 +22,9 @@
     "name": "Dennis Berggren"
   },
   "main": "app.js",
-  "platforms": ["local"],
+  "platforms": [
+    "local"
+  ],
   "brandColor": "#0095D5",
   "flow": {
     "triggers": [
