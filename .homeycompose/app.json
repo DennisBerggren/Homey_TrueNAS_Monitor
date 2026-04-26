@@ -79,6 +79,7 @@
         "en": "TrueNAS System"
       },
       "class": "sensor",
+      "icon": "/drivers/truenas_device/assets/icon.svg",
       "capabilities": [
         "pool_healthy",
         "pool_status",
